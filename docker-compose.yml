@@ -1,21 +1,21 @@
 version: '3'
 services:
-  postqresql:
+  postgresql:
     image: postgres
     container_name: lesson
     ports:
-             - "5432:5432"
-   environment:
-             - POSTGRES_HOST=localhost
-               - POSTGRES_USER=lesson
-               - POSTGRES_PASSWORD=lesson
-             - POSTGRES_DATABASE=lesson
- - comand: postgres
-               restart: always
+      - "5432:5432"
+    environment:
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=lesson
+      - POSTGRES_PASSWORD=lesson
+      - POSTGRES_DATABASE=lesson
+    command: postgres
+    restart: always
 
 
-              redis:
-                image: redis:alpine3.14
-                container_name: redis-lesson
-                posts:
-                  - "6379:6379"
+  redis:
+     image: redis:alpine3.14
+     container_name: redis-lesson
+     ports:
+       - "6379:6379"
